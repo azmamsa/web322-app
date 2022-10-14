@@ -6,7 +6,7 @@ var path = require('path');
 
 var fs = require("fs");
 
-
+//1.
 module.exports.initialize = () => {
      return new Promise(function(resolve, reject) {
         fs.readFile(path.join(__dirname,"./data/posts.json"), 'utf8', (err, data) => {
@@ -36,26 +36,23 @@ module.exports.initialize = () => {
 }
 
 
-// promise 
-
-
-
- module.exports.getAllPosts = (() => {
+//2.
+module.exports.getAllPosts = (() => {
      return new Promise((resolve, reject) => {
       if (posts.length == 0) {
-        reject("no results returned")
+        reject("No Results")
       }
       else{
         resolve(posts)      
       }
     });
-  });
+});
  
-
-  module.exports.getCategories = () => {
+//3.
+module.exports.getCategories = () => {
     return new Promise((resolve,reject) => {
         if (categories.length == 0) {
-            reject ('no results returned');
+            reject ("No Results");
         }
         else {
             resolve (categories);
@@ -63,7 +60,7 @@ module.exports.initialize = () => {
     })
 };
  
- 
+//4.
 module.exports.getPublishedPosts = (() => new Promise((resolve, reject) => {
     let p_post = [];
 
@@ -76,11 +73,11 @@ module.exports.getPublishedPosts = (() => new Promise((resolve, reject) => {
         resolve(p_post);
     }
     else {
-        reject("no results returned");
+        reject("No Results");
     }
 }));
   
-//addPost
+//1New.
 module.exports.addPost = (postData) => {
 
     return new Promise((resolve, reject) => {
@@ -101,7 +98,7 @@ module.exports.addPost = (postData) => {
     
 }
 
-// /posts?category=value
+//2NEW.
 module.exports.getPostsByCategory =  (category) => {
     return new Promise(function (resolve, reject) {
 
@@ -116,7 +113,7 @@ module.exports.getPostsByCategory =  (category) => {
         }
 
         if (post_by_category.length == 0) {
-            reject("no results returned");
+            reject("No Results");
             return;
         }
 
@@ -124,7 +121,7 @@ module.exports.getPostsByCategory =  (category) => {
     });
 }
 
-// /posts?minDate=value
+//3NEW.
 module.exports.getPostByMinDate = (minDateStr) => {
 
     var post_by_date = new Array();
@@ -138,7 +135,7 @@ module.exports.getPostByMinDate = (minDateStr) => {
         if(post_by_date.length === 0) 
         {
 
-            reject("no results returned") 
+            reject("No Results") 
         }  
 
         resolve(post_by_date) 
@@ -147,7 +144,7 @@ module.exports.getPostByMinDate = (minDateStr) => {
 } 
 
 
-//  /post/value
+//4New.
 module.exports.getPostById = (id) => {
     return new Promise((resolve, reject) => 
     {
@@ -162,7 +159,7 @@ module.exports.getPostById = (id) => {
         }
 
         if (post_by_ids.length == 0) {
-            reject("no results returned");
+            reject("No Results");
             return;
         }
 
