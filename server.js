@@ -142,7 +142,7 @@ app.post("/posts/add", upload.single("featureImage"), (req, res) => {
 
 
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname,"/views/404.html"));
+    res.status(404).sendFile(path.join(__dirname,"ERROR:SERVER NOT FOUND!"));
 });
 
 blogService.initialize()
