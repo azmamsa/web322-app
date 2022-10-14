@@ -1,11 +1,11 @@
 /*********************************************************************************
-*  WEB322 – Assignment 02
+*  WEB322 – Assignment 03
 *  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
 *  (including 3rd party web sites) or distributed to other students.
 * 
 *  Name: Abid Zuberbhai Mamsa Student ID: 158290205 Date: 14/10/22
 *
-*  Online (Cyclic) Link: https://drab-jade-brown-bear-suit.cyclic.app/
+*  Online (Cyclic) Link: https://drab-jade-brown-bear-suit.cyclic.app
 *
 ********************************************************************************/ 
 var express = require("express");
@@ -59,6 +59,7 @@ app.get("/categories", (req, res) => {
     .catch((err) => res.send({message: err}))
 });
 
+//(old version /post route)
 //app.get('/posts', (req, res) => {
 //    blogService.getAllPosts()
 //    .then((data) => res.send(data))
