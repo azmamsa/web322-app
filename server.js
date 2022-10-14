@@ -56,7 +56,7 @@ app.get('/categories', (req, res) => {
 
 
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname,"/views/404.html"));
+    res.status(404).sendFile(path.join(__dirname,"ERROR:SERVER NOT FOUND!"));
 });
 
 
