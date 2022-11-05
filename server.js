@@ -1,7 +1,7 @@
 /*********************************************************************************
 *  WEB322 – Assignment 04
-*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
-*  (including 3rd party web sites) or distributed to other students.
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy. I've referred to Stackoverflow for creating code for some of my .hbs files 
+*  No part *  of this assignment has been copied manually or electronically from any other source (including 3rd party web sites) or distributed to other students.
 * 
 *  Name: Abid Zuberbhai Mamsa Student ID: 158290205 Date: 04/11/22
 *
