@@ -7,7 +7,7 @@
     <!-- Latest compiled and minified Bootstrap 3.4.1 CSS -->
     <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
-    <title>About</title>
+    <title>Abid Zuberbhai Mamsa</title>
   </head>
   
   <body>
@@ -27,35 +27,19 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/blog">Blog</a></li>
-            <li class="active"><a href="/about">About</a></li>
+            {{#navLink "/blog"}}Blog{{/navLink}}
+            {{#navLink "/about"}}About{{/navLink}}
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/posts">Posts</a></li>
-            <li><a href="/categories">Categories</a></li>
-            <li><a href="/posts/add">Add Post</a></li>
+            {{#navLink "/posts"}}Posts{{/navLink}}
+            {{#navLink "/categories"}}Categories{{/navLink}}
+            {{#navLink "/posts/add"}}Add Posts{{/navLink}}
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <div class="container" style="padding-top:60px">
-      <div class="row">
-        <section class="main col-md-9">
-          <article>
-          <h2>About</h2>
-          <p>Hi there, welcome to my page and to my world.</p>
-          <p>I'm 20 y/o and am currently enrolled in CCP Diploma Programme at Seneca College in Toronto</p>
-          <p>I live in a world &#127758 different from the rest of humanity, in my world there's only 2 thing; Freedom & Fantasy</p>
-          <p>And I made this world using chaos, poetry & symphonies</p>
-          </article>
-        </section>
-        <aside class="col-md-3">
-          <h2>Coming Soon</h2>
-          <p>Next up, I'm adding Frenzy to my world!</p>
-          <p>It's going to be wilder and more true then this bland real world where your turn never comes</p>
-          <p>So if you're done waiting in vain, stay tuned to get a chance to experience Freedom, Fantasy & Frenzy!&#128512</p>
-        </aside>
-      </div>
+    <div class="container">
+        {{{body}}}
     </div>
 
     <!-- Latest compiled and minified jQuery 3.6.0 JavaScript -->

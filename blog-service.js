@@ -77,7 +77,7 @@ module.exports.getPublishedPosts = (() => new Promise((resolve, reject) => {
     }
 }));
   
-//1New.
+//5.
 module.exports.addPost = (postData) => {
 
     return new Promise((resolve, reject) => {
@@ -98,7 +98,7 @@ module.exports.addPost = (postData) => {
     
 }
 
-//2NEW.
+//6.
 module.exports.getPostsByCategory =  (category) => {
     return new Promise(function (resolve, reject) {
 
@@ -121,7 +121,7 @@ module.exports.getPostsByCategory =  (category) => {
     });
 }
 
-//3NEW.
+//7.
 module.exports.getPostByMinDate = (minDateStr) => {
 
     var post_by_date = new Array();
@@ -144,7 +144,7 @@ module.exports.getPostByMinDate = (minDateStr) => {
 } 
 
 
-//4New.
+//8.
 module.exports.getPostById = (id) => {
     return new Promise((resolve, reject) => 
     {
@@ -167,3 +167,20 @@ module.exports.getPostById = (id) => {
     });
 
 }
+
+//9. (NEW)
+module.exports.getPublishedPostsByCategory = (category) = (() => new Promise((resolve, reject) => {
+    let p_post = [];
+
+    posts.forEach((post) => {
+        if (post.published == true && post.category == category) {
+            p_post.push(post);
+        }
+    });
+    if (p_post.length != 0) {
+        resolve(p_post);
+    }
+    else {
+        reject("No Results");
+    }
+}));
