@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-md-12">
+    <hr />
     <h2>Categories</h2>
     <hr />
     <div class="table-responsive">
@@ -10,12 +11,12 @@
             <th>Category&nbsp;Name</th>
         </head>
         <body>
-          {{#each categories}}
-          <tr>
-            <td><a href="/posts?category={{id}}">{{id}}</a></td>
-            <td><a href="/categories?category={{category}}">{{category}}</a></td>
-          </tr>
-          {{/each}}
+        {{#each categories}}
+        <tr>
+        <td><a href="/posts?category={{id}}">{{id}}</a></td>
+        <td><a href="/categories?category={{category}}">{{category}}</a></td>
+        </tr>
+        {{/each}}
         </body>
       </table>
     </div>
