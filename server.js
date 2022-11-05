@@ -1,6 +1,6 @@
 /*********************************************************************************
 *  WEB322 – Assignment 04
-*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy. I've referred to Stackoverflow for creating code for some of my .hbs files 
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy. I have taken referrence from Stackoverflow for creating code for some of my .hbs files 
 *  No part *  of this assignment has been copied manually or electronically from any other source (including 3rd party web sites) or distributed to other students.
 * 
 *  Name: Abid Zuberbhai Mamsa Student ID: 158290205 Date: 04/11/22
@@ -80,7 +80,7 @@ app.use(parse.urlencoded({extended:true}));
 //code update--------------------------------------------------------
 app.get("/", (req, res) => {
   //res.sendFile(path.join(__dirname,"./views/about.html"));
-  res.render("about");
+  res.render("blog");
 });
 
 //code update--------------------------------------------------------
@@ -136,6 +136,58 @@ app.get('/blog', async (req, res) => {
     // render the "blog" view with all of the data (viewData)
     res.render("blog", {data: viewData})
 
+});
+
+
+//New Code--------------------------------------------------------------------------
+app.get('/blog/:id', async (req, res) => {
+
+    // Declare an object to store properties for the view
+    let viewData = {};
+
+    try{
+
+        // declare empty array to hold "post" objects
+        let posts = [];
+
+        // if there's a "category" query, filter the returned posts by category
+        if(req.query.category){
+            // Obtain the published "posts" by category
+            posts = await blogData.getPublishedPostsByCategory(req.query.category);
+        }else{
+            // Obtain the published "posts"
+            posts = await blogData.getPublishedPosts();
+        }
+
+        // sort the published posts by postDate
+        posts.sort((a,b) => new Date(b.postDate) - new Date(a.postDate));
+
+        // store the "posts" and "post" data in the viewData object (to be passed to the view)
+        viewData.posts = posts;
+
+    }catch(err){
+        viewData.message = "no results";
+    }
+
+    try{
+        // Obtain the post by "id"
+        viewData.post = await blogData.getPostById(req.params.id);
+    }catch(err){
+        viewData.message = "no results"; 
+    }
+
+    try{
+        // Obtain the full list of "categories"
+        let categories = await blogData.getCategories();
+
+        // store the "categories" data in the viewData object (to be passed to the view)
+        viewData.categories = categories;
+    }catch(err){
+        viewData.categoriesMessage = "no results"
+    }
+
+    // render the "blog" view with all of the data (viewData)
+    res.render("blog", {data: viewData})
 });
 
 
@@ -226,8 +278,10 @@ upload(req).then((uploaded)=>{
 
 
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname,"ERROR:SERVER NOT FOUND!"));
+    //res.status(404).sendFile(path.join(__dirname,"ERROR:SERVER NOT FOUND!"));
+    res.render("404.hbs");
 });
+
 
 blogData.initialize()
  .then(() => {app.listen(HTTP_PORT, onHttpStart);})
