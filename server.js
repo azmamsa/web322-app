@@ -274,17 +274,18 @@ app.get('/blog/:id', async (req, res) => {
     try{
         // Obtain the post by "id"
         viewData.post = await blogData.getPostById(req.params.id);
-    }catch(err){
+    }
+    catch(err){
         viewData.message = "no results"; 
     }
-
     try{
         // Obtain the full list of "categories"
         let categories = await blogData.getCategories();
 
         // store the "categories" data in the viewData object (to be passed to the view)
         viewData.categories = categories;
-    }catch(err){
+    }
+    catch(err){
         viewData.categoriesMessage = "no results"
     }
 
@@ -332,8 +333,8 @@ app.get("/register", (req,res) => {
 
 app.post("/register", (req,res) => {
     authData.registerUser(req.body)
-    .then(() => res.render("register", {successMessage: "User created" } ))
-    .catch (err => res.render("register", {errorMessage: err, userName:req.body.userName }) )
+    .then(() => res.render("register", {successMessage: "User created" }))
+    .catch(err => res.render("register", {errorMessage: err, userName:req.body.userName }))
 });
 
 app.post("/login", (req,res) => {
@@ -348,7 +349,7 @@ app.post("/login", (req,res) => {
         res.redirect('/posts');
     })
     .catch(err => {
-        res.render("login", {errorMessage:err, userName:req.body.userName} )
+        res.render("login", {errorMessage:err, userName:req.body.userName})
     }) 
 });
 
@@ -358,7 +359,7 @@ app.get("/logout", (req,res) => {
 });
 
 app.get("/userHistory", ensureLogin, (req,res) => {
-    res.render("userHistory", {user:req.session.user} );
+    res.render("userHistory", {user:req.session.user});
 });
 
 ////////////////////////////////////////////////////////////////////////

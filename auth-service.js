@@ -22,10 +22,11 @@ module.exports.initialize = function () {
     return new Promise(function (resolve, reject) {
         let db = mongoose.createConnection("mongodb+srv://azmamsa:azmamsa1234@senecaweb.h6jovzu.mongodb.net/web322_week8?retryWrites=true&w=majority");
 
-        db.on('error', (err)=>{
+        db.on('error', (err) => {
             reject(err); // reject the promise with the provided error
         });
-        db.once('open', ()=>{
+
+        db.once('open', () => {
            User = db.model("users", userSchema);
            resolve();
         });
@@ -42,7 +43,7 @@ exports.registerUser = (userData) => {
             bcrypt.genSalt(10, function(err, salt) {
                 bcrypt.hash(userData.password, salt, function(err, hash) {
                     if (err) {
-                        reject("error encrypting password");
+                        reject("Error encrypting the password");
                     }
                     else {
                         userData.password = hash;
