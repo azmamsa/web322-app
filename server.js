@@ -9,7 +9,7 @@
 *  Online (Cyclic) Link: https://drab-jade-brown-bear-suit.cyclic.app
 *  
 ***The cyclic link doesn't work but executing 'node server.js' in terminal works.
-*
+***The reference links for login.hbs/register.hbs/userHistory.hbs didn't open so i used link provided previously (sem)
 ********************************************************************************/ 
 
 const express = require('express');
