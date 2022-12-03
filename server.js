@@ -1,3 +1,17 @@
+/*********************************************************************************
+*  WEB322 – Assignment 06
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
+*  assignment has been copied manually or electronically from any other source (including web sites) or 
+*  distributed to other students.
+* 
+*  Name: Abid Zuberbhai Mamsa Student ID: 158290205 Date: 2nd Dec 2022
+*
+*  Online (Cyclic) Link: https://drab-jade-brown-bear-suit.cyclic.app
+*  
+***The cyclic link doesn't work but executing 'node server.js' in terminal works.
+*
+********************************************************************************/ 
+
 const express = require('express');
 const blogData = require("./blog-service");
 const multer = require("multer");
